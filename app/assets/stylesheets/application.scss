@@ -86,23 +86,23 @@
   }
 
   .jumbotron {
-    background-image: asset-url('app/assets/images/mehoheting.png');
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px; 
+    background-image: asset-url('jumbo.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    width: 1000px;
     color: #fff;
     font-family: 'Helvetica Neue' !important;
     font-stretch: expanded;
-    padding-top: 55px;
-    padding-bottom: 55px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 3rem;
     text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
-    h2 {
-      font-size: 35px !important;
-      .lead {
-        font-family: 'Helvetica Neue' !important;
-        font-size: 30px !important;
-      }
-    }
+  
   }
 
   .plan {
