@@ -29,10 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_24_012533) do
     t.string "title"
     t.string "details"
     t.date "expected_completion_date"
-    t.bigint "tenant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tenant_id"], name: "index_projects_on_tenant_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -68,6 +66,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_24_012533) do
 
   add_foreign_key "members", "tenants"
   add_foreign_key "members", "users"
-  add_foreign_key "projects", "tenants"
   add_foreign_key "tenants", "tenants"
 end

@@ -4,10 +4,8 @@ one:
   title: MyString
   details: MyString
   expected_completion_date: 2024-06-24
-  tenant: one
 
 two:
   title: MyString
   details: MyString
   expected_completion_date: 2024-06-24
-  tenant: two

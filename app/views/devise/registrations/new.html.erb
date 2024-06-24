@@ -22,6 +22,19 @@
     <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
   </div>
 
+   <div class="form-group col-md-6 no-left-padding">
+    <%= label :name, 'Organization' %>
+    <span class='description'>(Type unique name for your organization)</span>    
+    <%= text_field_tag "name", nil, required: true, class: "form-control" %>
+
+
+  </div> 
+  <div class="form-group col-md-6 no-right-padding">  
+  <%= label :name, "Plan" %>
+  <%= select_tag "subscription_type", options_for_select(["Free", "Premium"], required: true), class: "form-control" %>
+  </div>
+
+
   <div class="form-group">
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
   </div>

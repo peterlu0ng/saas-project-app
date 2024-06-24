@@ -4,7 +4,6 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.string :title
       t.string :details
       t.date :expected_completion_date
-      t.belongs_to :tenant, null: false, foreign_key: true
 
       t.timestamps
     end
