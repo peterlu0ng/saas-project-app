@@ -1,16 +1,18 @@
 class Artifact < ApplicationRecord
-  attr_accessor :upload
+  # attr_accessor :upload
+  has_one_attached :photo
   belongs_to :project
 
-  MAX_FILESIZE = 10.megabytes
-  validates_presence_of :name, :upload
-  validates_uniqueness_of :name
+  # MAX_FILESIZE = 10.megabytes
+  # validates_presence_of :name, :upload
+  # validates_uniqueness_of :name
   # validates :uploaded_file_size
 
   private
-  def uploaded_file_size
-    if upload
-      errors.add(:upload, "File size must be less than #{self.class::MAX_FILESIZE}") unless upload.size <= self.class::MAX_FILESIZE
-    end
-  end
+
+  # def uploaded_file_size
+  #   if upload
+  #     errors.add(:upload, "File size must be less than #{self.class::MAX_FILESIZE}") unless upload.size <= self.class::MAX_FILESIZE
+  #   end
+  # end
 end

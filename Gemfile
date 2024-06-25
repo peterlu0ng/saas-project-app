@@ -13,6 +13,9 @@ gem 'bootstrap'
 gem "sassc-rails"
 gem "bootstrap-datepicker-rails"
 gem 'jquery-ui-rails'
+# aws gem
+gem 'aws-sdk-s3'
+
 
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

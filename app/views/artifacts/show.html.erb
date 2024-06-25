@@ -2,6 +2,8 @@
 
 <%= render @artifact %>
 
+<%= image_tag(@artifact.photo, width: 200) if @artifact.photo.attached? %>
+
 <div>
   <%= link_to "Edit this artifact", edit_artifact_path(@artifact) %> |
   <%= link_to "Back to artifacts", artifacts_path %>
