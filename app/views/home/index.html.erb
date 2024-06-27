@@ -1,5 +1,5 @@
 <% if current_user %>
-    <h3>Organization: <%= current_user.email %></h3>
+    <h3>User: <%= current_user.email %></h3>
     <% project = Project.all %>
     <% project.each do |project| %>
     <div class="somerow">
@@ -10,8 +10,6 @@
     </div>
     <% end %>
     <% else %>
-
-
 <div class="jumbotron text-center">
     <h2>Welcome to the Project Management App.</h2>
 </div>
