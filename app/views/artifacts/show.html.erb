@@ -11,17 +11,16 @@
   <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
   <dd><%= @artifact.key %></dd>
   <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
-  <dd><%= @artifact.project_id %></dd>
+  <dd><%= Project.find(@artifact.project_id).title %></dd>
 </dl>
 <%= image_tag(@artifact.photo, width: 200) if @artifact.photo.attached? %>
 <br>
 <br>
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              artifacts_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_artifact_path(@artifact), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              artifact_path(@artifact),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<%= link_to 'Back', project_path(@artifact.project_id), :class => 'btn btn-primary'  %>
+<button type="button" class="btn btn-primary"><%= link_to "Edit", 
+              edit_artifact_path(@artifact) %>  
+              </button>
+<button type="button" class="btn btn-danger"><%= link_to "Delete", 
+               artifact_path(@artifact),data: {turbo_method: :delete, 
+              turbo_confirm: "Are you sure you want to delete?" } %>  
+              </button>

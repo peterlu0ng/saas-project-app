@@ -14,11 +14,10 @@
         <td><%= link_to artifact.name, artifact_path(artifact), class: 'main-link' %></td>
         <td>
         <td>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      artifact_path(artifact),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+              <button type="button" class="btn btn-danger"><%= link_to "Delete", 
+              artifact_path(artifact, :from => "list"),data: {turbo_method: :delete, 
+              turbo_confirm: "Are you sure you want to delete?" } %>  
+              </button>
         </td>
       </tr>
     <% end %>

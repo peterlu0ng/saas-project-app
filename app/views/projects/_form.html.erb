@@ -1,32 +1,44 @@
-<%= form_with(model: project) do |form| %>
-  <% if project.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<%= form_for @project, :html => { :class => "form-horizontal artifact" } do |f| %>
 
-      <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <% if @project.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :details, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :details, :class => 'form-control' %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :details, style: "display: block" %>
-    <%= form.text_field :details %>
+
+  <div class='mb-3'>
+    <%= f.label :expected_completion_date, style: "display: block" %>
+    <%= f.date_field :expected_completion_date %>
   </div>
 
-  <div>
-    <%= form.label :expected_completion_date, style: "display: block" %>
-    <%= form.date_field :expected_completion_date %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

@@ -1,15 +1,22 @@
 <% if current_user %>
-    <h3>User: <%= current_user.email %></h3>
-    <% project = Project.all %>
+<h3>User: <%= current_user.email %></h3>
+ <div class="container">
+<% project = Project.all %>
     <% project.each do |project| %>
-    <div class="somerow">
-        <h4><%= project.title %></h4>
-    </div>
-    <div class="somerow">
-        <%= project.details %>
-    </div>
-    <% end %>
-    <% else %>
+        <div class="row justify-content-md-center">
+            <div class="col-4 mt-4">
+                <div class="card text-center shadow-none mb-5 bg-light rounded">
+                        <div class="card">
+                            <div class="card-body">
+                        <h5 class="card-title"><%= project.title %></h5>
+                        <p class="card-text"><%= project.details %></p>
+                        <%= link_to 'Show project', project, class: 'btn btn-primary'%>
+                    </div>
+                </div>
+            </div>
+        </div>
+<% end %>
+<% else %>
 <div class="jumbotron text-center">
     <h2>Welcome to the Project Management App.</h2>
 </div>

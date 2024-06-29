@@ -53,7 +53,7 @@ class ArtifactsController < ApplicationController
     @artifact.destroy!
 
     respond_to do |format|
-      format.html { redirect_to artifacts_url, notice: "Artifact was successfully destroyed." }
+      format.html { redirect_to project_path(@artifact.project_id) }
       format.json { head :no_content }
     end
   end
