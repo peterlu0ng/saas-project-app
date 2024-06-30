@@ -1,0 +1,8 @@
+<h1>Congrats!</h1>
+<p>You just subscripted to the Project Management App.</p>
+<% @line_items.each do |item|%>
+    <% product = Stripe::Product.retrieve(item.price.product)%>
+    <h3><%= item.description %></h3>
+<% end %>
+<h2>Total amount $<%= @session.amount_total.to_f / 100 %> </h2>
+<br>

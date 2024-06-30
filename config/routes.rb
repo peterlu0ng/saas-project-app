@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
+  get 'checkout', to: 'checkouts#show'
+  get 'checkout/success', to: 'checkouts#success'
+  get 'billing', to: 'billing#show'
 end
