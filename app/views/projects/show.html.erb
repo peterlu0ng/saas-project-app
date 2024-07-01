@@ -4,8 +4,18 @@
 
 <dl class="dl-horizontal">
   <dd><%= @project.details %></dd>
+
   <h5><strong>Estimated completion date:</strong></h5>
-  <dd><%= @project.expected_completion_date %></dd>
+  <% if @project.expected_completion_date != nil %>
+  <dd>
+    <%= @project.expected_completion_date %>
+    </dd>
+    <% else %>
+    <dd>
+      <i> Edit to add a date</i>
+    </dd>
+    <%end%>
+
 </dl>
 <button type="button" class="btn btn-primary"><%= link_to "Edit", 
               edit_project_path(@project) %>  

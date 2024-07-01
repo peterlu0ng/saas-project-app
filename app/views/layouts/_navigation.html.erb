@@ -1,4 +1,3 @@
-<%if current_user%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,6 +7,7 @@
         <%= link_to "Project Manager", root_path, class: "navbar-brand", id: "logo" %>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <% if current_user %>
           <ul class="navbar-nav mr-auto">
             <li><%= link_to('New Project', new_project_path, class: 'nav-link') %></li>
             
@@ -20,9 +20,9 @@
                         Edit profile
                       <% end %>
                   </li>
-                  
             </ul>
           </ul>
+          <%end%>
           <% if current_user %>
            <ul class="navbar-nav ms-auto">
               <li class="nav-item user-name">
@@ -32,11 +32,19 @@
             <li class="nav-item">
               <%= link_to 'Upgrade Now!', checkout_path, class: 'btn btn-success logout-button'%>
             </li>
-            <% end %>
+            <% else %>
+              <p class="mt-2 logout-button"><span class="badge text-bg-success">Subscribed</span></p>
+              <% end %>
           <li class="nav-item">
               <%= link_to 'Logout', destroy_user_session_path, class: 'btn btn-secondary logout-button', data: {turbo_method: :delete} %>
             </li>
             </ul>
+            <% else %>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary logout-button', data: {turbo_method: :get} %>
+            </li>
+            </ul>
             <% end %>
+      </div>
 </nav>
-<%end%>

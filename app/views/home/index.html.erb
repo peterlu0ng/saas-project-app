@@ -1,33 +1,7 @@
 <% if current_user %>
-<div class="row">
-      <div class="col-md-12 d-inline-flex">
-        <h3>User: <%= current_user.email %></h3> 
-       <span class="badge text-bg-success">Subscribed</span>
-      </div>
-    </div>
-    
 
- <div class="container">
-<% project = Project.all %>
-    <% project.each do |project| %>
-    <% if project.user_id == current_user.id%>
-        <div class="row justify-content-md-center">
-            <div class="col-4 mt-4">
-                <div class="card text-center shadow-none mb-5 bg-light rounded">
-                        <div class="card">
-                            <div class="card-body">
-                        <h5 class="card-title"><%= project.title %></h5>
-                        <p class="card-text"><%= project.details %></p>
-                        <%= link_to 'Show project', project, class: 'btn btn-primary'%>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <%end%>
+<%= render 'projects/list'%>
 
-<% end %>
-<%= link_to('New Project', new_project_path, class: 'btn btn-primary') %>
 <% else %>
 <div class="jumbotron text-center">
     <h2>Welcome to the Project Management App.</h2>
@@ -45,8 +19,8 @@
                 <li>Access anywhere</li>
                 </ul>
             </div>
-            <p class="card-text">One time payment: $10</p>
-                <%# <%= link_to 'C', checkout_path, class: 'btn btn-success sign-up' %>
+            <p class="card-text">Subscription: $19.99</p>
+                <%= link_to 'Checkout', checkout_path, class: 'btn btn-success sign-up' %>
             </div>
         </div>
     </div>

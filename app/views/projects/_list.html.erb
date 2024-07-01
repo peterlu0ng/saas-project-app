@@ -1,0 +1,32 @@
+
+<div class="page-header">
+  <h1>Projects</h1>
+</div>
+
+<% if current_user.projects.count > 0 %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Details</th>
+      <th>Expected Completion Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% project = Project.all %>
+        <% project.each do |project| %>
+        <% if project.user_id == current_user.id%>
+        <tr>
+            <td><%= project.title%></td>
+            <td><%= project.details %></td>
+            <td><%= project.expected_completion_date %></td>
+            <td><%= link_to 'Show project', project, class: 'btn btn-primary'%></td>
+        </tr>
+        <% end %>
+        <%end%>
+  </tbody>
+</table>
+<% else %>
+      <p class="lead">You don't have any projects</p>
+<% end %>
+<%= link_to('New Project', new_project_path, class: 'btn btn-primary') %>

@@ -1,5 +1,7 @@
 class ArtifactsController < ApplicationController
   before_action :set_artifact, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
 
   # GET /artifacts or /artifacts.json
   def index
